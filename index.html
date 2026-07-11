@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Design Dossier — 3801 Island Way">
+<meta property="og:description" content="Prepared by Prouvé">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%2326241F'/><text x='32' y='40' font-family='Georgia,serif' font-size='22' fill='%23C9AE8C' text-anchor='middle'>3801</text></svg>">
 <title>Design Dossier — 3801 Island Way</title>
 <script>
 function checkPw(){
@@ -89,6 +92,14 @@ window.addEventListener("DOMContentLoaded",function(){
   .cover__meta { font-size: 0.85rem; color: #8A8378; line-height: 1.6; }
   .cover__meta span { display: block; }
   .cover__divider { width: 48px; height: 2px; background: #A88A50; margin: 1.5rem 0; }
+
+  /* ─── Contents strip ─── */
+  .toc { border-top: 1px solid #E8E3DA; padding: 1.3rem 0 1.5rem; background: #FAF8F4; }
+  .toc .container { display: flex; flex-wrap: wrap; gap: 0.55rem 1.5rem; justify-content: center; }
+  .toc a { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #8A8378; text-decoration: none; transition: color 0.2s; }
+  .toc a:hover { color: #7A6A45; }
+
+  section[id] { scroll-margin-top: 1rem; }
 
   /* ─── Sections ─── */
   .section { padding: 5.5rem 0; border-top: 1px solid #E8E3DA; }
@@ -180,12 +191,28 @@ window.addEventListener("DOMContentLoaded",function(){
     .container, .container--narrow { padding: 0 1.25rem; }
     .section { padding: 3.5rem 0; }
     .cover__content { padding: 3rem 1.25rem 2rem; }
+    .toc .container { gap: 0.5rem 1rem; }
   }
 
+  /* ─── Print / Save-as-PDF ─── */
   @media print {
-    .section { break-inside: avoid; }
-    .hero-image { box-shadow: none; border: 1px solid #ddd; }
+    #pw-gate, .toc { display: none !important; }
+    body.locked { overflow: visible; }
     body { background: white; }
+    .cover { min-height: 75vh; }
+    .section { break-before: page; padding: 2.5rem 0; border-top: none; }
+    .section__header, .hero-image, .board, .pair, .plan-block, .placeholder, .grid-2, .palette { break-inside: avoid; }
+    h2 { break-after: avoid; }
+    .hero-image, .board, .pair .cell, .supporting-image { box-shadow: none; border: 1px solid #E0DAD0; }
+    .section--dark { background: white; color: #2C2A26; }
+    .section--dark h2, .section--dark h3, .section--dark li { color: #2C2A26; }
+    .section--dark p { color: #4A4438; }
+    .section--dark .vision-quote { color: #4A4438; }
+    .section--dark .section__kicker { color: #7A7468; }
+    .section--dark .materials__name { color: #2C2A26; }
+    .section--dark .placeholder { border-color: #D9D2C4; background: #F7F4EE; }
+    .section--dark .placeholder__name { color: #6A6458; }
+    .full-bleed { break-inside: avoid; }
   }
 </style>
 </head>
@@ -217,11 +244,35 @@ window.addEventListener("DOMContentLoaded",function(){
   </div>
 </section>
 
+<!-- ════════════════════════════════════════════════════════════════
+     CONTENTS
+     ════════════════════════════════════════════════════════════════ -->
+<nav class="toc">
+  <div class="container">
+    <a href="#before">As It Stands</a>
+    <a href="#vision">The Vision</a>
+    <a href="#entry">Entry</a>
+    <a href="#kitchen">Kitchen</a>
+    <a href="#living">Living</a>
+    <a href="#office">Office</a>
+    <a href="#primary">Primary Suite</a>
+    <a href="#bar">Bar</a>
+    <a href="#bath2">Bath Two</a>
+    <a href="#bath3">Bath Three</a>
+    <a href="#bath4">Bath Four</a>
+    <a href="#powder">Powder</a>
+    <a href="#rooftop">Rooftop</a>
+    <a href="#landscape">Landscape</a>
+    <a href="#materials">Materials</a>
+    <a href="#plans">Plans</a>
+  </div>
+</nav>
+
 
 <!-- ════════════════════════════════════════════════════════════════
      01 — AS IT STANDS (BEFORE)
      ════════════════════════════════════════════════════════════════ -->
-<section class="section">
+<section class="section" id="before">
   <div class="container">
     <div class="section__header">
       <span class="section__number">01</span>
@@ -233,12 +284,12 @@ window.addEventListener("DOMContentLoaded",function(){
     </div>
 
     <div class="grid-3">
-      <div class="cell"><img src="images/before-street.jpg" alt="The property as found — an overgrown drive off Island Way"></div>
-      <div class="cell"><img src="images/before-exterior.jpg" alt="The existing house beneath the live oaks"></div>
-      <div class="cell"><img src="images/before-aerial-house.jpg" alt="The existing house from above, at the water's edge"></div>
-      <div class="cell"><img src="images/before-living.jpg" alt="Existing living room"></div>
-      <div class="cell"><img src="images/before-kitchen.jpg" alt="Existing kitchen"></div>
-      <div class="cell"><img src="images/before-bedroom.jpg" alt="Existing bedroom with corner windows over the lake"></div>
+      <div class="cell"><img src="images/before-exterior.jpg" alt="The existing house beneath the live oaks" loading="lazy" decoding="async"></div>
+      <div class="cell"><img src="images/before-aerial-house.jpg" alt="The existing house from above, at the water's edge" loading="lazy" decoding="async"></div>
+      <div class="cell"><img src="images/before-lake-view.jpg" alt="The lake from the property — the site's front-row seat" loading="lazy" decoding="async"></div>
+      <div class="cell"><img src="images/before-living.jpg" alt="Existing living room" loading="lazy" decoding="async"></div>
+      <div class="cell"><img src="images/before-kitchen.jpg" alt="Existing kitchen" loading="lazy" decoding="async"></div>
+      <div class="cell"><img src="images/before-bedroom.jpg" alt="Existing bedroom with corner windows over the lake" loading="lazy" decoding="async"></div>
     </div>
   </div>
 
@@ -250,13 +301,13 @@ window.addEventListener("DOMContentLoaded",function(){
 </section>
 
 <div class="full-bleed">
-  <img src="images/view-skyline.jpg" alt="The view from 3801 Island Way — downtown Austin rising beyond Lake Austin">
+  <img src="images/view-skyline.jpg" alt="The view from 3801 Island Way — downtown Austin rising beyond Lake Austin" loading="lazy" decoding="async">
 </div>
 
 <!-- ════════════════════════════════════════════════════════════════
      02 — THE VISION
      ════════════════════════════════════════════════════════════════ -->
-<section class="section section--dark">
+<section class="section section--dark" id="vision">
   <div class="container--narrow">
     <div class="section__header">
       <span class="section__number">02</span>
@@ -281,8 +332,8 @@ window.addEventListener("DOMContentLoaded",function(){
 
   <div class="container">
     <div class="grid-2" style="margin-top: 3rem;">
-      <div class="cell cell--fit"><img src="images/axon-lake.png" alt="Architectural study — the house from the lake side, rooftop terrace above"></div>
-      <div class="cell cell--fit"><img src="images/axon-front.png" alt="Architectural study — the slatted stair tower on the entry facade"></div>
+      <div class="cell cell--fit"><img src="images/axon-lake.png" alt="Architectural study — the house from the lake side, rooftop terrace above" loading="lazy" decoding="async"></div>
+      <div class="cell cell--fit"><img src="images/axon-front.png" alt="Architectural study — the slatted stair tower on the entry facade" loading="lazy" decoding="async"></div>
     </div>
     <p class="image-caption">Architectural studies &mdash; three stories rising from a limestone base to a rooftop open to the sky, wrapped by a slatted screen tower.</p>
   </div>
@@ -292,7 +343,7 @@ window.addEventListener("DOMContentLoaded",function(){
 <!-- ════════════════════════════════════════════════════════════════
      03 — ENTRY
      ════════════════════════════════════════════════════════════════ -->
-<section class="section">
+<section class="section" id="entry">
   <div class="container">
     <div class="section__header">
       <span class="section__number">03</span>
@@ -303,7 +354,7 @@ window.addEventListener("DOMContentLoaded",function(){
     </div>
 
     <div class="hero-image hero-image--contained">
-      <img src="images/entry-lead.jpg" alt="Entry lounge — curved white sofa, carved wood credenza, octagonal brass mirror, Austin City Limits artwork">
+      <img src="images/entry-lead.jpg" alt="Entry lounge — curved white sofa, carved wood credenza, octagonal brass mirror, Austin City Limits artwork" loading="lazy" decoding="async">
     </div>
   </div>
 </section>
@@ -312,7 +363,7 @@ window.addEventListener("DOMContentLoaded",function(){
 <!-- ════════════════════════════════════════════════════════════════
      04 — KITCHEN & PANTRY
      ════════════════════════════════════════════════════════════════ -->
-<section class="section section--tinted">
+<section class="section section--tinted" id="kitchen">
   <div class="container">
     <div class="section__header">
       <span class="section__number">04</span>
@@ -323,11 +374,11 @@ window.addEventListener("DOMContentLoaded",function(){
     </div>
 
     <div class="hero-image">
-      <img src="images/kitchen-lead.jpg" alt="Kitchen — white oak cabinetry, marble slab backsplash rising into an arched hood, long island with fluted base">
+      <img src="images/kitchen-lead.jpg" alt="Kitchen — white oak cabinetry, marble slab backsplash rising into an arched hood, long island with fluted base" loading="lazy" decoding="async">
     </div>
 
     <div class="grid-2 grid-2--uneven" style="margin-top: 2rem;">
-      <div class="cell"><img src="images/pantry-lead.jpg" alt="Pantry — a corridor of continuous white oak millwork with a window over the counter"></div>
+      <div class="cell"><img src="images/pantry-lead.jpg" alt="Pantry — a corridor of continuous white oak millwork with a window over the counter" loading="lazy" decoding="async"></div>
       <div class="cell" style="display:flex; align-items:center; box-shadow:none;">
         <p style="font-family: Georgia, serif; font-style: italic; font-size: 1.1rem; color: #5A554C; padding: 1.5rem;">
           Behind the kitchen, a working pantry wrapped in the same white oak &mdash;
@@ -342,7 +393,7 @@ window.addEventListener("DOMContentLoaded",function(){
 <!-- ════════════════════════════════════════════════════════════════
      05 — LIVING ROOM (render in progress)
      ════════════════════════════════════════════════════════════════ -->
-<section class="section">
+<section class="section" id="living">
   <div class="container">
     <div class="section__header">
       <span class="section__number">05</span>
@@ -364,7 +415,7 @@ window.addEventListener("DOMContentLoaded",function(){
 <!-- ════════════════════════════════════════════════════════════════
      06 — OFFICE (render in progress)
      ════════════════════════════════════════════════════════════════ -->
-<section class="section section--tinted">
+<section class="section section--tinted" id="office">
   <div class="container">
     <div class="section__header">
       <span class="section__number">06</span>
@@ -386,7 +437,7 @@ window.addEventListener("DOMContentLoaded",function(){
 <!-- ════════════════════════════════════════════════════════════════
      07 — PRIMARY SUITE
      ════════════════════════════════════════════════════════════════ -->
-<section class="section section--dark">
+<section class="section section--dark" id="primary">
   <div class="container">
     <div class="section__header">
       <span class="section__number">07</span>
@@ -398,7 +449,7 @@ window.addEventListener("DOMContentLoaded",function(){
     </div>
 
     <div class="hero-image hero-image--portrait">
-      <img src="images/ante-room-lead.jpg" alt="The ante room — fluted floating console beneath woven leather wall sculpture, rattan sconces">
+      <img src="images/ante-room-lead.jpg" alt="The ante room — fluted floating console beneath woven leather wall sculpture, rattan sconces" loading="lazy" decoding="async">
     </div>
     <p class="image-caption" style="color:#A39B8C;">The ante room &mdash; the quiet threshold to the suite, and Raka&rsquo;s work space.</p>
 
@@ -409,18 +460,18 @@ window.addEventListener("DOMContentLoaded",function(){
     </div>
 
     <div class="hero-image" style="margin-top: 3rem;">
-      <img src="images/primary-bath-lead.jpg" alt="Primary bath — vein-cut travertine walls, freestanding oval tub, white oak floating vanity, glass wet room">
+      <img src="images/primary-bath-lead.jpg" alt="Primary bath — vein-cut travertine walls, freestanding oval tub, white oak floating vanity, glass wet room" loading="lazy" decoding="async">
     </div>
     <p class="image-caption" style="color:#A39B8C;">The primary bath &mdash; vein-cut travertine, a sculpted tub, and white oak warmth.</p>
 
     <div class="grid-2" style="margin-top: 2.5rem; max-width: 980px; margin-left:auto; margin-right:auto;">
-      <div class="cell cell--fit"><img src="images/primary-bath-axo.jpg" alt="The primary bath in plan — twin showers, freestanding tub, water closet, double vanity, and a private deck"></div>
-      <div class="cell cell--fit"><img src="images/primary-bath-board.jpg" alt="Primary bath selections — Birch White travertine, Solaris limewash, polished nickel fittings, travertine mosaic backsplash"></div>
+      <div class="cell cell--fit"><img src="images/primary-bath-axo.jpg" alt="The primary bath in plan — twin showers, freestanding tub, water closet, double vanity, and a private deck" loading="lazy" decoding="async"></div>
+      <div class="cell cell--fit"><img src="images/primary-bath-board.jpg" alt="Primary bath selections — Birch White travertine, Solaris limewash, polished nickel fittings, travertine mosaic backsplash" loading="lazy" decoding="async"></div>
     </div>
     <p class="image-caption" style="color:#A39B8C;">The bath in plan &mdash; twin showers, a private deck &mdash; and its material story: Birch White travertine under Solaris limewash.</p>
 
     <div class="hero-image hero-image--contained" style="margin-top: 3rem;">
-      <img src="images/closet-lead.jpg" alt="The primary dressing room — white oak and woven cane wardrobes, packing island, alabaster chandelier">
+      <img src="images/closet-lead.jpg" alt="The primary dressing room — white oak and woven cane wardrobes, packing island, alabaster chandelier" loading="lazy" decoding="async">
     </div>
     <p class="image-caption" style="color:#A39B8C;">The dressing room &mdash; rift white oak, woven cane, and an alabaster ribbon of light.</p>
   </div>
@@ -430,19 +481,21 @@ window.addEventListener("DOMContentLoaded",function(){
 <!-- ════════════════════════════════════════════════════════════════
      08 — THE BAR
      ════════════════════════════════════════════════════════════════ -->
-<section class="section">
+<section class="section" id="bar">
   <div class="container">
     <div class="section__header">
       <span class="section__number">08</span>
       <h2>The Bar</h2>
       <p class="section__kicker">
-        The promised pop of rock &amp; roll &mdash; a room dressed entirely in brushed brass.
+        An echo of the kitchen &mdash; the same white oak and one dramatic stone, tuned for evening.
       </p>
     </div>
 
-    <div class="hero-image hero-image--portrait">
-      <img src="images/bar-2.jpg" alt="The bar — brushed brass cabinetry and counters, open shelving with bottle display, warm under-shelf light">
+    <div class="pair">
+      <div class="cell"><img src="images/bar-render-1.jpg" alt="The bar — white oak cabinetry, full-height stone slab wall, brass and black open shelving, glass-front wine column" loading="lazy" decoding="async"></div>
+      <div class="cell"><img src="images/bar-render-2.jpg" alt="The bar through the arch — stone counters, brass faucet, shelf-lit bottle display" loading="lazy" decoding="async"></div>
     </div>
+    <p class="image-caption">Brass-and-black shelving floats on a bookmatched stone wall &mdash; a quieter kind of glamour.</p>
   </div>
 </section>
 
@@ -450,7 +503,7 @@ window.addEventListener("DOMContentLoaded",function(){
 <!-- ════════════════════════════════════════════════════════════════
      09 — BATH TWO
      ════════════════════════════════════════════════════════════════ -->
-<section class="section section--tinted">
+<section class="section section--tinted" id="bath2">
   <div class="container">
     <div class="section__header">
       <span class="section__number">09</span>
@@ -461,12 +514,12 @@ window.addEventListener("DOMContentLoaded",function(){
     </div>
 
     <div class="pair">
-      <div class="cell"><img src="images/bath2-render-1.jpg" alt="Bath two — Calacatta Gold shower walls, reeded dark vanity, Atlas Grey marble floor"></div>
-      <div class="cell"><img src="images/bath2-render-2.jpg" alt="Bath two — fluted vanity wall under a linear sconce"></div>
+      <div class="cell"><img src="images/bath2-render-1.jpg" alt="Bath two — Calacatta Gold shower walls, reeded dark vanity, Atlas Grey marble floor" loading="lazy" decoding="async"></div>
+      <div class="cell"><img src="images/bath2-render-2.jpg" alt="Bath two — fluted vanity wall under a linear sconce" loading="lazy" decoding="async"></div>
     </div>
 
     <div class="board">
-      <img src="images/bath2-board.jpg" alt="Bath two selections — Calacatta Gold fluted mosaic wainscoting, reeded vanity, Atlas Grey Moroccan marble floor, nickel fittings">
+      <img src="images/bath2-board.jpg" alt="Bath two selections — Calacatta Gold fluted mosaic wainscoting, reeded vanity, Atlas Grey Moroccan marble floor, nickel fittings" loading="lazy" decoding="async">
     </div>
   </div>
 </section>
@@ -475,7 +528,7 @@ window.addEventListener("DOMContentLoaded",function(){
 <!-- ════════════════════════════════════════════════════════════════
      10 — BATH THREE
      ════════════════════════════════════════════════════════════════ -->
-<section class="section">
+<section class="section" id="bath3">
   <div class="container">
     <div class="section__header">
       <span class="section__number">10</span>
@@ -486,12 +539,12 @@ window.addEventListener("DOMContentLoaded",function(){
     </div>
 
     <div class="pair">
-      <div class="cell"><img src="images/bath3-render-1.jpg" alt="Bath three — white oak floating vanity, Carrara wainscoting, Bardiglio grey floor"></div>
-      <div class="cell"><img src="images/bath3-render-2.jpg" alt="Bath three — glass shower with Carrara subway walls"></div>
+      <div class="cell"><img src="images/bath3-render-1.jpg" alt="Bath three — white oak floating vanity, Carrara wainscoting, Bardiglio grey floor" loading="lazy" decoding="async"></div>
+      <div class="cell"><img src="images/bath3-render-2.jpg" alt="Bath three — glass shower with Carrara subway walls" loading="lazy" decoding="async"></div>
     </div>
 
     <div class="board">
-      <img src="images/bath3-board.jpg" alt="Bath three selections — Casablanca Carrara cabochon pencil mosaic, white oak floating vanity, Bardiglio light grey floor, chrome fittings">
+      <img src="images/bath3-board.jpg" alt="Bath three selections — Casablanca Carrara cabochon pencil mosaic, white oak floating vanity, Bardiglio light grey floor, chrome fittings" loading="lazy" decoding="async">
     </div>
   </div>
 </section>
@@ -500,7 +553,7 @@ window.addEventListener("DOMContentLoaded",function(){
 <!-- ════════════════════════════════════════════════════════════════
      11 — BATH FOUR
      ════════════════════════════════════════════════════════════════ -->
-<section class="section section--tinted">
+<section class="section section--tinted" id="bath4">
   <div class="container">
     <div class="section__header">
       <span class="section__number">11</span>
@@ -511,12 +564,12 @@ window.addEventListener("DOMContentLoaded",function(){
     </div>
 
     <div class="pair">
-      <div class="cell"><img src="images/bath4-render-1.jpg" alt="Bath four — Calacatta Viola walls and floor, white oak vanity, oval brass mirror, brass column sconces"></div>
-      <div class="cell"><img src="images/bath4-render-2.jpg" alt="Bath four — Viola-wrapped tub alcove under a steel-framed window"></div>
+      <div class="cell"><img src="images/bath4-render-1.jpg" alt="Bath four — Calacatta Viola walls and floor, white oak vanity, oval brass mirror, brass column sconces" loading="lazy" decoding="async"></div>
+      <div class="cell"><img src="images/bath4-render-2.jpg" alt="Bath four — Viola-wrapped tub alcove under a steel-framed window" loading="lazy" decoding="async"></div>
     </div>
 
     <div class="board">
-      <img src="images/bath4-board.jpg" alt="Bath four selections — Calacatta Viola fluted 3D tile and slab, white oak floating vanity, aged brass fittings">
+      <img src="images/bath4-board.jpg" alt="Bath four selections — Calacatta Viola fluted 3D tile and slab, white oak floating vanity, aged brass fittings" loading="lazy" decoding="async">
     </div>
   </div>
 </section>
@@ -525,7 +578,7 @@ window.addEventListener("DOMContentLoaded",function(){
 <!-- ════════════════════════════════════════════════════════════════
      12 — THE POWDER ROOM
      ════════════════════════════════════════════════════════════════ -->
-<section class="section section--dark">
+<section class="section section--dark" id="powder">
   <div class="container">
     <div class="section__header">
       <span class="section__number">12</span>
@@ -536,11 +589,11 @@ window.addEventListener("DOMContentLoaded",function(){
     </div>
 
     <div class="hero-image hero-image--portrait">
-      <img src="images/powder-render.jpg" alt="Powder room — hand-carved chiseled Calacatta Monet sink floating on Roman clay walls, angular black mirror, travertine globe sconces">
+      <img src="images/powder-render.jpg" alt="Powder room — hand-carved chiseled Calacatta Monet sink floating on Roman clay walls, angular black mirror, travertine globe sconces" loading="lazy" decoding="async">
     </div>
 
     <div class="board" style="margin-top: 2.5rem;">
-      <img src="images/powder-board.jpg" alt="Powder room selections — hand-carved Calacatta Monet vanity sink, Portola Roman Clay, Talland mirror, travertine sconces, dark nickel fittings">
+      <img src="images/powder-board.jpg" alt="Powder room selections — hand-carved Calacatta Monet vanity sink, Portola Roman Clay, Talland mirror, travertine sconces, dark nickel fittings" loading="lazy" decoding="async">
     </div>
   </div>
 </section>
@@ -549,7 +602,7 @@ window.addEventListener("DOMContentLoaded",function(){
 <!-- ════════════════════════════════════════════════════════════════
      13 — THE ROOFTOP
      ════════════════════════════════════════════════════════════════ -->
-<section class="section">
+<section class="section" id="rooftop">
   <div class="container">
     <div class="section__header">
       <span class="section__number">13</span>
@@ -560,7 +613,7 @@ window.addEventListener("DOMContentLoaded",function(){
     </div>
 
     <div class="hero-image">
-      <img src="images/rooftop-lead.jpg" alt="The rooftop at dusk — travertine terrace with pergolas, outdoor kitchen and bar, long dining table, loungers, and the Austin skyline">
+      <img src="images/rooftop-lead.jpg" alt="The rooftop at dusk — travertine terrace with pergolas, outdoor kitchen and bar, long dining table, loungers, and the Austin skyline" loading="lazy" decoding="async">
     </div>
     <p class="image-caption">Golden hour on the roof &mdash; an outdoor kitchen, a long table, and Austin on the horizon.</p>
   </div>
@@ -570,7 +623,7 @@ window.addEventListener("DOMContentLoaded",function(){
 <!-- ════════════════════════════════════════════════════════════════
      14 — LANDSCAPE & OUTDOOR LIVING
      ════════════════════════════════════════════════════════════════ -->
-<section class="section section--tinted">
+<section class="section section--tinted" id="landscape">
   <div class="container">
     <div class="section__header">
       <span class="section__number">14</span>
@@ -580,21 +633,26 @@ window.addEventListener("DOMContentLoaded",function(){
       </p>
     </div>
 
-    <div class="hero-image">
-      <img src="images/landscape-firepit.jpg" alt="Fire pit terrace — deep lounge chairs around a steel fire bowl, native plantings, the lake beyond">
+    <div class="hero-image hero-image--contained">
+      <img src="images/site-plan.jpg" alt="The landscape concept plan — the drive, the auto court, the house, and the gardens between street and shore" loading="lazy" decoding="async">
+    </div>
+    <p class="image-caption">The site in plan &mdash; the drive, the house, and the gardens between street and shore.</p>
+
+    <div class="hero-image" style="margin-top: 2.5rem;">
+      <img src="images/landscape-firepit.jpg" alt="Fire pit terrace — deep lounge chairs around a steel fire bowl, native plantings, the lake beyond" loading="lazy" decoding="async">
     </div>
 
     <div class="grid-2">
-      <div class="cell"><img src="images/landscape-steps.jpg" alt="Limestone slab steps rising through native grasses and salvia"></div>
-      <div class="cell"><img src="images/landscape-arrival.jpg" alt="The arrival — a planted auto court beneath the oaks"></div>
+      <div class="cell"><img src="images/landscape-steps.jpg" alt="Limestone slab steps rising through native grasses and salvia" loading="lazy" decoding="async"></div>
+      <div class="cell"><img src="images/landscape-arrival.jpg" alt="The arrival — a planted auto court beneath the oaks" loading="lazy" decoding="async"></div>
     </div>
 
     <div class="hero-image">
-      <img src="images/landscape-terrace.jpg" alt="The dining terrace — a long table under the trees at the water side of the house">
+      <img src="images/landscape-terrace.jpg" alt="The dining terrace — a long table under the trees at the water side of the house" loading="lazy" decoding="async">
     </div>
 
     <div class="hero-image hero-image--contained" style="margin-top: 2rem;">
-      <img src="images/landscape-aerial.jpg" alt="The house from above — rooftop terrace and gardens held inside the tree canopy">
+      <img src="images/landscape-aerial.jpg" alt="The house from above — rooftop terrace and gardens held inside the tree canopy" loading="lazy" decoding="async">
     </div>
     <p class="image-caption">Held inside the canopy &mdash; the house reads as a quiet object in the trees.</p>
   </div>
@@ -604,7 +662,7 @@ window.addEventListener("DOMContentLoaded",function(){
 <!-- ════════════════════════════════════════════════════════════════
      15 — MATERIALS & PALETTE
      ════════════════════════════════════════════════════════════════ -->
-<section class="section section--dark">
+<section class="section section--dark" id="materials">
   <div class="container--narrow">
     <div class="section__header">
       <span class="section__number">15</span>
@@ -691,7 +749,7 @@ window.addEventListener("DOMContentLoaded",function(){
         <div class="materials__dot" style="background: #A88A50;"></div>
         <div class="materials__text">
           <span class="materials__name">Aged Brass</span>
-          <span class="materials__use">Hardware, lighting, and one entire bar</span>
+          <span class="materials__use">Hardware, lighting, and the bar&rsquo;s open shelving</span>
         </div>
       </div>
       <div class="materials__item">
@@ -716,7 +774,7 @@ window.addEventListener("DOMContentLoaded",function(){
 <!-- ════════════════════════════════════════════════════════════════
      16 — THE PLANS
      ════════════════════════════════════════════════════════════════ -->
-<section class="section">
+<section class="section" id="plans">
   <div class="container">
     <div class="section__header">
       <span class="section__number">16</span>
@@ -728,22 +786,22 @@ window.addEventListener("DOMContentLoaded",function(){
 
     <div class="plan-block">
       <h3>Level One</h3>
-      <img src="images/plan-level1.png" alt="Level one furniture plan — arrival, garage, and lake-level spaces">
+      <img src="images/plan-level1.png" alt="Level one furniture plan — arrival, garage, and lake-level spaces" loading="lazy" decoding="async">
     </div>
 
     <div class="plan-block">
       <h3>Level Two &mdash; The Living Floor</h3>
-      <img src="images/plan-level2.png" alt="Level two furniture plan — living room, kitchen, dining, and terraces">
+      <img src="images/plan-level2.png" alt="Level two furniture plan — living room, kitchen, dining, and terraces" loading="lazy" decoding="async">
     </div>
 
     <div class="plan-block">
       <h3>Level Three &mdash; The Private Floor</h3>
-      <img src="images/plan-level3.png" alt="Level three furniture plan — primary suite and bedrooms">
+      <img src="images/plan-level3.png" alt="Level three furniture plan — primary suite and bedrooms" loading="lazy" decoding="async">
     </div>
 
     <div class="plan-block">
       <h3>The Rooftop</h3>
-      <img src="images/plan-roof.png" alt="Rooftop furniture plan — outdoor dining, lounge, and fire under pergolas">
+      <img src="images/plan-roof.png" alt="Rooftop furniture plan — outdoor dining, lounge, and fire under pergolas" loading="lazy" decoding="async">
     </div>
   </div>
 </section>
