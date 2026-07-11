@@ -122,12 +122,13 @@ window.addEventListener("DOMContentLoaded",function(){
   .grid-2--uneven { grid-template-columns: 3fr 2fr; align-items: stretch; }
   .cell--fit img { object-fit: contain; background: #fff; height: auto; }
 
-  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 720px; margin: 2.25rem auto; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 820px; margin: 2.25rem auto; }
   .pair .cell { border-radius: 4px; overflow: hidden; box-shadow: 0 4px 24px rgba(40,35,25,0.10); }
 
   /* ─── Board images (selection collages) ─── */
   .board { max-width: 820px; margin: 2rem auto; border-radius: 4px; overflow: hidden; box-shadow: 0 4px 24px rgba(40,35,25,0.08); border: 1px solid #EDE8DF; }
   .board img { width: 100%; height: auto; display: block; }
+  .section--dark .board { border-color: #3A362F; }
 
   /* ─── Placeholder (render in progress) ─── */
   .placeholder {
@@ -139,7 +140,6 @@ window.addEventListener("DOMContentLoaded",function(){
   .placeholder__name { font-family: Georgia, 'Times New Roman', serif; font-size: 1.3rem; color: #6A6458; letter-spacing: 0.02em; }
   .placeholder__note { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; color: #A39B8C; }
   .placeholder__rule { width: 36px; height: 2px; background: #C9AE8C; }
-  .placeholder--portrait { aspect-ratio: 4/3; max-width: 620px; }
   .section--dark .placeholder { border-color: #44403A; background: repeating-linear-gradient(-45deg, #2B2822, #2B2822 14px, #2E2B25 14px, #2E2B25 28px); }
   .section--dark .placeholder__name { color: #B8B0A2; }
 
@@ -310,35 +310,15 @@ window.addEventListener("DOMContentLoaded",function(){
 
 
 <!-- ════════════════════════════════════════════════════════════════
-     04 — ANTE ROOM
+     04 — KITCHEN & PANTRY
      ════════════════════════════════════════════════════════════════ -->
 <section class="section section--tinted">
   <div class="container">
     <div class="section__header">
       <span class="section__number">04</span>
-      <h2>The Ante Room</h2>
-      <p class="section__kicker">
-        A pause between spaces &mdash; a fluted floating console, woven leather artwork, rattan light.
-      </p>
-    </div>
-
-    <div class="hero-image hero-image--portrait">
-      <img src="images/ante-room-lead.jpg" alt="Ante room — fluted floating console beneath woven leather wall sculpture, rattan sconces">
-    </div>
-  </div>
-</section>
-
-
-<!-- ════════════════════════════════════════════════════════════════
-     05 — KITCHEN & PANTRY
-     ════════════════════════════════════════════════════════════════ -->
-<section class="section">
-  <div class="container">
-    <div class="section__header">
-      <span class="section__number">05</span>
       <h2>The Kitchen</h2>
       <p class="section__kicker">
-        White oak, one dramatic stone, and light &mdash; a kitchen that whispers rather than shouts.
+        White oak, one elegant stone, and light &mdash; a kitchen that whispers rather than shouts.
       </p>
     </div>
 
@@ -360,12 +340,12 @@ window.addEventListener("DOMContentLoaded",function(){
 
 
 <!-- ════════════════════════════════════════════════════════════════
-     06 — LIVING ROOM (render in progress)
+     05 — LIVING ROOM (render in progress)
      ════════════════════════════════════════════════════════════════ -->
-<section class="section section--tinted">
+<section class="section">
   <div class="container">
     <div class="section__header">
-      <span class="section__number">06</span>
+      <span class="section__number">05</span>
       <h2>The Living Room</h2>
       <p class="section__kicker">
         The heart of the living floor &mdash; a wall of glass holding the lake.
@@ -382,12 +362,12 @@ window.addEventListener("DOMContentLoaded",function(){
 
 
 <!-- ════════════════════════════════════════════════════════════════
-     07 — OFFICE (render in progress)
+     06 — OFFICE (render in progress)
      ════════════════════════════════════════════════════════════════ -->
-<section class="section">
+<section class="section section--tinted">
   <div class="container">
     <div class="section__header">
-      <span class="section__number">07</span>
+      <span class="section__number">06</span>
       <h2>The Office</h2>
       <p class="section__kicker">
         A curved desk, layered shelving, and a door that closes on the world.
@@ -404,19 +384,25 @@ window.addEventListener("DOMContentLoaded",function(){
 
 
 <!-- ════════════════════════════════════════════════════════════════
-     08 — PRIMARY SUITE
+     07 — PRIMARY SUITE
      ════════════════════════════════════════════════════════════════ -->
 <section class="section section--dark">
   <div class="container">
     <div class="section__header">
-      <span class="section__number">08</span>
+      <span class="section__number">07</span>
       <h2>The Primary Suite</h2>
       <p class="section__kicker">
-        A private floor pointed at the water &mdash; bedroom, dressing room, and a bath carved in travertine.
+        A private floor pointed at the water &mdash; an ante room, a bedroom, a bath carved
+        in travertine, and a dressing room lit like a boutique.
       </p>
     </div>
 
-    <div class="placeholder">
+    <div class="hero-image hero-image--portrait">
+      <img src="images/ante-room-lead.jpg" alt="The ante room — fluted floating console beneath woven leather wall sculpture, rattan sconces">
+    </div>
+    <p class="image-caption" style="color:#A39B8C;">The ante room &mdash; the quiet threshold to the suite, and Raka&rsquo;s work space.</p>
+
+    <div class="placeholder" style="margin-top: 3rem;">
       <span class="placeholder__name">The Primary Bedroom</span>
       <div class="placeholder__rule"></div>
       <span class="placeholder__note">Rendering in progress</span>
@@ -427,22 +413,27 @@ window.addEventListener("DOMContentLoaded",function(){
     </div>
     <p class="image-caption" style="color:#A39B8C;">The primary bath &mdash; vein-cut travertine, a sculpted tub, and white oak warmth.</p>
 
-    <div class="placeholder" style="margin-top: 3rem;">
-      <span class="placeholder__name">The Primary Closet</span>
-      <div class="placeholder__rule"></div>
-      <span class="placeholder__note">Rendering in progress</span>
+    <div class="grid-2" style="margin-top: 2.5rem; max-width: 980px; margin-left:auto; margin-right:auto;">
+      <div class="cell cell--fit"><img src="images/primary-bath-axo.jpg" alt="The primary bath in plan — twin showers, freestanding tub, water closet, double vanity, and a private deck"></div>
+      <div class="cell cell--fit"><img src="images/primary-bath-board.jpg" alt="Primary bath selections — Birch White travertine, Solaris limewash, polished nickel fittings, travertine mosaic backsplash"></div>
     </div>
+    <p class="image-caption" style="color:#A39B8C;">The bath in plan &mdash; twin showers, a private deck &mdash; and its material story: Birch White travertine under Solaris limewash.</p>
+
+    <div class="hero-image hero-image--contained" style="margin-top: 3rem;">
+      <img src="images/closet-lead.jpg" alt="The primary dressing room — white oak and woven cane wardrobes, packing island, alabaster chandelier">
+    </div>
+    <p class="image-caption" style="color:#A39B8C;">The dressing room &mdash; rift white oak, woven cane, and an alabaster ribbon of light.</p>
   </div>
 </section>
 
 
 <!-- ════════════════════════════════════════════════════════════════
-     09 — THE BAR
+     08 — THE BAR
      ════════════════════════════════════════════════════════════════ -->
 <section class="section">
   <div class="container">
     <div class="section__header">
-      <span class="section__number">09</span>
+      <span class="section__number">08</span>
       <h2>The Bar</h2>
       <p class="section__kicker">
         The promised pop of rock &amp; roll &mdash; a room dressed entirely in brushed brass.
@@ -457,71 +448,132 @@ window.addEventListener("DOMContentLoaded",function(){
 
 
 <!-- ════════════════════════════════════════════════════════════════
-     10 — THE BATHS
+     09 — BATH TWO
      ════════════════════════════════════════════════════════════════ -->
 <section class="section section--tinted">
   <div class="container">
     <div class="section__header">
-      <span class="section__number">10</span>
-      <h2>The Baths</h2>
+      <span class="section__number">09</span>
+      <h2>Bath Two</h2>
       <p class="section__kicker">
-        Four rooms, four moods &mdash; each built on marble, white oak, and a single strong idea.
+        Calacatta Gold over Atlas Grey &mdash; fluted marble, a dark reeded vanity, polished nickel.
       </p>
     </div>
 
     <div class="pair">
-      <div class="cell"><img src="images/powder-1.jpg" alt="Powder room — hand-carved chiseled stone sink floating on plaster walls, angular black mirror, travertine sconces"></div>
-      <div class="cell"><img src="images/powder-2.jpg" alt="Powder room at dusk — the carved stone sink under warm sconce light"></div>
+      <div class="cell"><img src="images/bath2-render-1.jpg" alt="Bath two — Calacatta Gold shower walls, reeded dark vanity, Atlas Grey marble floor"></div>
+      <div class="cell"><img src="images/bath2-render-2.jpg" alt="Bath two — fluted vanity wall under a linear sconce"></div>
     </div>
-    <p class="image-caption">The powder room &mdash; a hand-carved Calacatta Monet sink, Roman clay walls, and candlelight temperatures.</p>
-
-    <div class="board" style="margin-top: 3rem;">
-      <img src="images/bath2-board.jpg" alt="Bath 2 selections — Calacatta Gold marble, fluted mosaic wainscoting, dark reeded vanity, Atlas Grey Moroccan marble floor, polished nickel">
-    </div>
-    <p class="image-caption">Bath Two &mdash; Calacatta Gold and Atlas Grey, with a dark reeded vanity.</p>
 
     <div class="board">
-      <img src="images/bath3-board.jpg" alt="Bath 3 selections — Casablanca Carrara marble, cabochon pencil mosaic, white oak floating vanity, Bardiglio grey floor, chrome">
-    </div>
-    <p class="image-caption">Bath Three &mdash; Casablanca Carrara calm over Bardiglio grey.</p>
-
-    <div class="board">
-      <img src="images/bath4-board.jpg" alt="Bath 4 selections — Calacatta Viola marble, fluted 3D tile, white oak floating vanity, aged brass fixtures">
-    </div>
-    <p class="image-caption">Bath Four &mdash; Calacatta Viola drama with aged brass.</p>
-  </div>
-</section>
-
-
-<!-- ════════════════════════════════════════════════════════════════
-     11 — THE ROOFTOP (render in progress)
-     ════════════════════════════════════════════════════════════════ -->
-<section class="section section--dark">
-  <div class="container">
-    <div class="section__header">
-      <span class="section__number">11</span>
-      <h2>The Rooftop</h2>
-      <p class="section__kicker">
-        The finale &mdash; dining, fire, and open sky above the tree line, with Lake Austin in every direction.
-      </p>
-    </div>
-
-    <div class="placeholder">
-      <span class="placeholder__name">The Rooftop</span>
-      <div class="placeholder__rule"></div>
-      <span class="placeholder__note">Rendering in progress</span>
+      <img src="images/bath2-board.jpg" alt="Bath two selections — Calacatta Gold fluted mosaic wainscoting, reeded vanity, Atlas Grey Moroccan marble floor, nickel fittings">
     </div>
   </div>
 </section>
 
 
 <!-- ════════════════════════════════════════════════════════════════
-     12 — LANDSCAPE & OUTDOOR LIVING
+     10 — BATH THREE
      ════════════════════════════════════════════════════════════════ -->
 <section class="section">
   <div class="container">
     <div class="section__header">
+      <span class="section__number">10</span>
+      <h2>Bath Three</h2>
+      <p class="section__kicker">
+        Casablanca Carrara calm &mdash; white oak, cabochon mosaic, and soft Bardiglio grey.
+      </p>
+    </div>
+
+    <div class="pair">
+      <div class="cell"><img src="images/bath3-render-1.jpg" alt="Bath three — white oak floating vanity, Carrara wainscoting, Bardiglio grey floor"></div>
+      <div class="cell"><img src="images/bath3-render-2.jpg" alt="Bath three — glass shower with Carrara subway walls"></div>
+    </div>
+
+    <div class="board">
+      <img src="images/bath3-board.jpg" alt="Bath three selections — Casablanca Carrara cabochon pencil mosaic, white oak floating vanity, Bardiglio light grey floor, chrome fittings">
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     11 — BATH FOUR
+     ════════════════════════════════════════════════════════════════ -->
+<section class="section section--tinted">
+  <div class="container">
+    <div class="section__header">
+      <span class="section__number">11</span>
+      <h2>Bath Four</h2>
+      <p class="section__kicker">
+        Calacatta Viola and aged brass &mdash; the bold one.
+      </p>
+    </div>
+
+    <div class="pair">
+      <div class="cell"><img src="images/bath4-render-1.jpg" alt="Bath four — Calacatta Viola walls and floor, white oak vanity, oval brass mirror, brass column sconces"></div>
+      <div class="cell"><img src="images/bath4-render-2.jpg" alt="Bath four — Viola-wrapped tub alcove under a steel-framed window"></div>
+    </div>
+
+    <div class="board">
+      <img src="images/bath4-board.jpg" alt="Bath four selections — Calacatta Viola fluted 3D tile and slab, white oak floating vanity, aged brass fittings">
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     12 — THE POWDER ROOM
+     ════════════════════════════════════════════════════════════════ -->
+<section class="section section--dark">
+  <div class="container">
+    <div class="section__header">
       <span class="section__number">12</span>
+      <h2>The Powder Room</h2>
+      <p class="section__kicker">
+        A jewel box in Roman clay &mdash; a hand-carved stone sink under candlelight.
+      </p>
+    </div>
+
+    <div class="hero-image hero-image--portrait">
+      <img src="images/powder-render.jpg" alt="Powder room — hand-carved chiseled Calacatta Monet sink floating on Roman clay walls, angular black mirror, travertine globe sconces">
+    </div>
+
+    <div class="board" style="margin-top: 2.5rem;">
+      <img src="images/powder-board.jpg" alt="Powder room selections — hand-carved Calacatta Monet vanity sink, Portola Roman Clay, Talland mirror, travertine sconces, dark nickel fittings">
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     13 — THE ROOFTOP
+     ════════════════════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section__header">
+      <span class="section__number">13</span>
+      <h2>The Rooftop</h2>
+      <p class="section__kicker">
+        The finale &mdash; dining, fire, and open sky above the tree line, with the city glowing on the horizon.
+      </p>
+    </div>
+
+    <div class="hero-image">
+      <img src="images/rooftop-lead.jpg" alt="The rooftop at dusk — travertine terrace with pergolas, outdoor kitchen and bar, long dining table, loungers, and the Austin skyline">
+    </div>
+    <p class="image-caption">Golden hour on the roof &mdash; an outdoor kitchen, a long table, and Austin on the horizon.</p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     14 — LANDSCAPE & OUTDOOR LIVING
+     ════════════════════════════════════════════════════════════════ -->
+<section class="section section--tinted">
+  <div class="container">
+    <div class="section__header">
+      <span class="section__number">14</span>
       <h2>The Landscape</h2>
       <p class="section__kicker">
         Native grasses, limestone boulders, and stone paths &mdash; the hillside handed back to Texas.
@@ -550,12 +602,12 @@ window.addEventListener("DOMContentLoaded",function(){
 
 
 <!-- ════════════════════════════════════════════════════════════════
-     13 — MATERIALS & PALETTE
+     15 — MATERIALS & PALETTE
      ════════════════════════════════════════════════════════════════ -->
 <section class="section section--dark">
   <div class="container--narrow">
     <div class="section__header">
-      <span class="section__number">13</span>
+      <span class="section__number">15</span>
       <h2>Materials &amp; Palette</h2>
       <p class="section__kicker">
         Natural, grounding colors pulled from the site itself &mdash; limestone, oak, water, and sky.
@@ -662,12 +714,12 @@ window.addEventListener("DOMContentLoaded",function(){
 
 
 <!-- ════════════════════════════════════════════════════════════════
-     14 — THE PLANS
+     16 — THE PLANS
      ════════════════════════════════════════════════════════════════ -->
 <section class="section">
   <div class="container">
     <div class="section__header">
-      <span class="section__number">14</span>
+      <span class="section__number">16</span>
       <h2>The Plans</h2>
       <p class="section__kicker">
         Four levels stepping up the hillside &mdash; from the water to the sky.
