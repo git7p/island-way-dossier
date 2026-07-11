@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Design Dossier — 3801 Island Way</title>
+<script>
+function checkPw(){
+  var inp=document.getElementById("pw-input");
+  var err=document.getElementById("pw-err");
+  if(inp.value.trim()==="3801"){
+    document.getElementById("pw-gate").classList.add("hidden");
+    document.body.classList.remove("locked");
+    sessionStorage.setItem("pw-ok-iw","1");
+    setTimeout(function(){document.getElementById("pw-gate").remove();},700);
+  } else {
+    err.classList.add("show");
+    inp.value="";
+    inp.focus();
+  }
+}
+window.addEventListener("DOMContentLoaded",function(){
+  if(sessionStorage.getItem("pw-ok-iw")==="1"){
+    var g=document.getElementById("pw-gate");
+    if(g)g.remove();
+    document.body.classList.remove("locked");
+  } else {
+    document.body.classList.add("locked");
+    document.getElementById("pw-input").focus();
+  }
+});
+</script>
+<style>
+  /* ─── Password Gate ─── */
+  #pw-gate { position:fixed;inset:0;z-index:9999;background:#26241F;display:flex;align-items:center;justify-content:center;flex-direction:column;font-family:Georgia,"Times New Roman",serif;transition:opacity 0.6s ease; }
+  #pw-gate.hidden { opacity:0;pointer-events:none; }
+  #pw-gate h2 { color:#FAF8F5;font-size:1.6rem;font-weight:400;margin-bottom:0.5rem;letter-spacing:0.05em; }
+  #pw-gate p { color:#999;font-size:0.85rem;font-family:-apple-system,sans-serif;margin-bottom:1.5rem; }
+  #pw-gate input { background:transparent;border:1px solid #555;color:#FAF8F5;padding:0.8rem 1.5rem;font-size:1rem;width:280px;text-align:center;font-family:-apple-system,sans-serif;letter-spacing:0.15em;border-radius:0;outline:none;transition:border-color 0.2s; }
+  #pw-gate input:focus { border-color:#A88A50; }
+  #pw-gate input::placeholder { color:#666;letter-spacing:0.1em; }
+  #pw-gate .pw-error { color:#C9AE8C;font-size:0.8rem;font-family:-apple-system,sans-serif;margin-top:0.8rem;opacity:0;transition:opacity 0.3s; }
+  #pw-gate .pw-error.show { opacity:1; }
+  body.locked { overflow:hidden; }
+
+  /* ─── Reset & Base ─── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+  body {
+    background: #FAF8F4;
+    color: #2C2A26;
+    font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ─── Typography ─── */
+  h1, h2, h3 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight: 400;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+
+  h1 { font-size: clamp(2.4rem, 5vw, 4rem); }
+  h2 { font-size: clamp(1.7rem, 3.5vw, 2.5rem); }
+  h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
+  h4 { font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.78rem; color: #8A8378; }
+
+  p, li { font-size: 1rem; max-width: 680px; }
+
+  /* ─── Layout ─── */
+  .container { max-width: 1160px; margin: 0 auto; padding: 0 2rem; }
+  .container--narrow { max-width: 780px; margin: 0 auto; padding: 0 2rem; }
+
+  /* ─── Cover ─── */
+  .cover { position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; }
+  .cover__image { position: absolute; inset: 0; z-index: 0; }
+  .cover__image img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; display: block; }
+  .cover__overlay { position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(to bottom, rgba(250,248,244,0) 0%, rgba(250,248,244,0) 42%, rgba(250,248,244,0.45) 62%, rgba(250,248,244,0.92) 82%, rgba(250,248,244,1) 100%); }
+  .cover__content { position: relative; z-index: 2; padding: 4rem 2rem 3rem; max-width: 1160px; margin: 0 auto; width: 100%; }
+  .cover__eyebrow { font-weight: 600; font-size: 0.75rem; letter-spacing: 0.22em; text-transform: uppercase; color: #7A6A45; margin-bottom: 0.75rem; }
+  .cover__title { font-size: clamp(2.8rem, 7vw, 5.2rem); color: #2C2A26; margin-bottom: 0.5rem; letter-spacing: -0.025em; line-height: 1.05; }
+  .cover__subtitle { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.05rem, 2.5vw, 1.45rem); color: #5A554C; font-style: italic; margin-bottom: 1.5rem; }
+  .cover__meta { font-size: 0.85rem; color: #8A8378; line-height: 1.6; }
+  .cover__meta span { display: block; }
+  .cover__divider { width: 48px; height: 2px; background: #A88A50; margin: 1.5rem 0; }
+
+  /* ─── Sections ─── */
+  .section { padding: 5.5rem 0; border-top: 1px solid #E8E3DA; }
+  .section--dark { background: #26241F; color: #F5F1E8; border-top-color: #33302A; }
+  .section--dark h2, .section--dark h3 { color: #F5F1E8; }
+  .section--dark p { color: #CFC9BD; }
+  .section--tinted { background: #F1EDE5; }
+
+  .section__header { margin-bottom: 2.75rem; }
+  .section__number { font-family: Georgia, 'Times New Roman', serif; font-size: 0.85rem; color: #A39B8C; letter-spacing: 0.05em; display: block; margin-bottom: 0.5rem; }
+  .section__kicker { font-family: Georgia, 'Times New Roman', serif; font-size: 1.1rem; font-style: italic; color: #7A7468; margin-top: 0.75rem; max-width: 620px; line-height: 1.55; }
+  .section--dark .section__kicker { color: #A39B8C; }
+  .section--dark .section__number { color: #A88A50; }
+
+  /* ─── Images ─── */
+  .hero-image { width: 100%; margin: 2.25rem 0; border-radius: 4px; overflow: hidden; box-shadow: 0 8px 40px rgba(40,35,25,0.10); }
+  .hero-image img { width: 100%; height: auto; display: block; }
+  .hero-image--contained { max-width: 820px; margin-left: auto; margin-right: auto; }
+  .hero-image--portrait { max-width: 480px; margin-left: auto; margin-right: auto; }
+
+  .image-caption { font-size: 0.78rem; color: #A39B8C; text-align: center; margin-top: 0.9rem; font-style: italic; }
+
+  .full-bleed { margin: 0; width: 100%; }
+  .full-bleed img { width: 100%; height: auto; display: block; }
+
+  /* ─── Grids ─── */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 2.25rem 0; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin: 2.25rem 0; }
+  .grid-2 .cell, .grid-3 .cell { border-radius: 4px; overflow: hidden; box-shadow: 0 4px 20px rgba(40,35,25,0.08); }
+  .cell img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .grid-2--uneven { grid-template-columns: 3fr 2fr; align-items: stretch; }
+  .cell--fit img { object-fit: contain; background: #fff; height: auto; }
+
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 720px; margin: 2.25rem auto; }
+  .pair .cell { border-radius: 4px; overflow: hidden; box-shadow: 0 4px 24px rgba(40,35,25,0.10); }
+
+  /* ─── Board images (selection collages) ─── */
+  .board { max-width: 820px; margin: 2rem auto; border-radius: 4px; overflow: hidden; box-shadow: 0 4px 24px rgba(40,35,25,0.08); border: 1px solid #EDE8DF; }
+  .board img { width: 100%; height: auto; display: block; }
+
+  /* ─── Placeholder (render in progress) ─── */
+  .placeholder {
+    max-width: 820px; margin: 2.25rem auto; aspect-ratio: 16/9;
+    border: 1px solid #D9D2C4; border-radius: 4px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.8rem;
+    background: repeating-linear-gradient(-45deg, #F7F4EE, #F7F4EE 14px, #F3EFE7 14px, #F3EFE7 28px);
+  }
+  .placeholder__name { font-family: Georgia, 'Times New Roman', serif; font-size: 1.3rem; color: #6A6458; letter-spacing: 0.02em; }
+  .placeholder__note { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; color: #A39B8C; }
+  .placeholder__rule { width: 36px; height: 2px; background: #C9AE8C; }
+  .placeholder--portrait { aspect-ratio: 4/3; max-width: 620px; }
+  .section--dark .placeholder { border-color: #44403A; background: repeating-linear-gradient(-45deg, #2B2822, #2B2822 14px, #2E2B25 14px, #2E2B25 28px); }
+  .section--dark .placeholder__name { color: #B8B0A2; }
+
+  /* ─── Vision ─── */
+  .vision-quote { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.45rem, 3vw, 2.05rem); font-style: italic; color: #4A4438; max-width: 720px; line-height: 1.45; margin: 1.5rem 0 2rem; }
+  .section--dark .vision-quote { color: #EDE7D8; }
+
+  /* ─── Palette ─── */
+  .palette { display: flex; gap: 0; margin: 2.5rem 0 1rem; border-radius: 6px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.18); max-width: 820px; }
+  .palette__swatch { flex: 1; aspect-ratio: 1; display: flex; flex-direction: column; justify-content: flex-end; padding: 0.6rem; min-height: 96px; }
+  .palette__label { font-size: 0.6rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; line-height: 1.3; }
+  .palette__hex { font-size: 0.55rem; opacity: 0.7; font-family: 'SF Mono', Monaco, monospace; }
+
+  .materials { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.1rem; margin: 2rem 0; max-width: 820px; }
+  .materials__item { display: flex; align-items: flex-start; gap: 0.75rem; }
+  .materials__dot { width: 11px; height: 11px; border-radius: 50%; flex-shrink: 0; margin-top: 0.42rem; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15); }
+  .materials__text { font-size: 0.88rem; line-height: 1.45; }
+  .materials__name { font-weight: 600; display: block; color: #F5F1E8; }
+  .materials__use { color: #A39B8C; font-size: 0.8rem; }
+
+  /* ─── Plans ─── */
+  .plan-block { max-width: 880px; margin: 2.5rem auto; }
+  .plan-block img { width: 100%; height: auto; display: block; border-radius: 4px; background: white; box-shadow: 0 4px 20px rgba(40,35,25,0.07); }
+  .plan-block h3 { text-align: center; margin-bottom: 1.2rem; }
+
+  /* ─── Divider / Footer ─── */
+  .divider { width: 48px; height: 2px; background: #A88A50; margin: 2rem 0; }
+  .footer { text-align: center; padding: 3.5rem 2rem; border-top: 1px solid #E8E3DA; font-size: 0.8rem; color: #A39B8C; letter-spacing: 0.05em; }
+  .footer__logo { font-family: Georgia, 'Times New Roman', serif; font-size: 1.15rem; color: #2C2A26; display: block; margin-bottom: 0.5rem; letter-spacing: 0.22em; text-transform: uppercase; }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 768px) {
+    .grid-2, .grid-3, .grid-2--uneven { grid-template-columns: 1fr; }
+    .pair { grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+    .palette { flex-wrap: wrap; }
+    .palette__swatch { min-width: 33.33%; flex: 1 1 33.33%; }
+    .materials { grid-template-columns: 1fr; }
+    .container, .container--narrow { padding: 0 1.25rem; }
+    .section { padding: 3.5rem 0; }
+    .cover__content { padding: 3rem 1.25rem 2rem; }
+  }
+
+  @media print {
+    .section { break-inside: avoid; }
+    .hero-image { box-shadow: none; border: 1px solid #ddd; }
+    body { background: white; }
+  }
+</style>
+</head>
+<body class="locked">
+<div id="pw-gate">
+  <h2>Design Dossier</h2>
+  <p>3801 Island Way</p>
+  <input type="password" id="pw-input" placeholder="Enter password" onkeydown="if(event.key==='Enter')checkPw()">
+  <div class="pw-error" id="pw-err">Incorrect password</div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════
+     COVER
+     ════════════════════════════════════════════════════════════════ -->
+<section class="cover">
+  <div class="cover__image">
+    <img src="images/exterior-hero.jpg" alt="3801 Island Way — the residence seen from the gardens, three stories rising to a rooftop terrace">
+  </div>
+  <div class="cover__overlay"></div>
+  <div class="cover__content">
+    <div class="cover__eyebrow">Prouv&eacute;</div>
+    <h1 class="cover__title">3801 Island Way</h1>
+    <p class="cover__subtitle">A Lake Austin Residence</p>
+    <div class="cover__divider"></div>
+    <div class="cover__meta">
+      <span>The Srinivasan Residence</span>
+      <span>Austin, Texas</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     01 — AS IT STANDS (BEFORE)
+     ════════════════════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section__header">
+      <span class="section__number">01</span>
+      <h2>As It Stands</h2>
+      <p class="section__kicker">
+        A decades-old house on one of the great sites of Lake Austin —
+        small rooms, dated finishes, and a front-row seat it never took.
+      </p>
+    </div>
+
+    <div class="grid-3">
+      <div class="cell"><img src="images/before-street.jpg" alt="The property as found — an overgrown drive off Island Way"></div>
+      <div class="cell"><img src="images/before-exterior.jpg" alt="The existing house beneath the live oaks"></div>
+      <div class="cell"><img src="images/before-aerial-house.jpg" alt="The existing house from above, at the water's edge"></div>
+      <div class="cell"><img src="images/before-living.jpg" alt="Existing living room"></div>
+      <div class="cell"><img src="images/before-kitchen.jpg" alt="Existing kitchen"></div>
+      <div class="cell"><img src="images/before-bedroom.jpg" alt="Existing bedroom with corner windows over the lake"></div>
+    </div>
+  </div>
+
+  <div class="container--narrow" style="margin-top: 1.5rem;">
+    <p style="font-family: Georgia, serif; font-style: italic; font-size: 1.15rem; color: #5A554C;">
+      Every window already knew what this place could be.
+    </p>
+  </div>
+</section>
+
+<div class="full-bleed">
+  <img src="images/view-skyline.jpg" alt="The view from 3801 Island Way — downtown Austin rising beyond Lake Austin">
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════
+     02 — THE VISION
+     ════════════════════════════════════════════════════════════════ -->
+<section class="section section--dark">
+  <div class="container--narrow">
+    <div class="section__header">
+      <span class="section__number">02</span>
+      <h2>The Vision</h2>
+    </div>
+
+    <p class="vision-quote">
+      Quiet modernism on Lake Austin &mdash;<br>texture, proportion, and the long view.
+    </p>
+    <p style="margin-bottom: 1.25rem;">
+      A modern, minimal envelope where interest comes from craftsmanship, not contrast.
+      Organic, soft, light-filled rooms designed to feel serene, welcoming, and elevated.
+      Natural, grounding colors let every room blend into the landscape &mdash;
+      and the water takes center stage.
+    </p>
+    <p>
+      Raw, beautiful materials add character and patina. Modern furniture and lighting hold
+      clean lines against carefully curated vintage pieces that add soul.
+      And here and there &mdash; a pop of rock &amp; roll.
+    </p>
+  </div>
+
+  <div class="container">
+    <div class="grid-2" style="margin-top: 3rem;">
+      <div class="cell cell--fit"><img src="images/axon-lake.png" alt="Architectural study — the house from the lake side, rooftop terrace above"></div>
+      <div class="cell cell--fit"><img src="images/axon-front.png" alt="Architectural study — the slatted stair tower on the entry facade"></div>
+    </div>
+    <p class="image-caption">Architectural studies &mdash; three stories rising from a limestone base to a rooftop open to the sky, wrapped by a slatted screen tower.</p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     03 — ENTRY
+     ════════════════════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section__header">
+      <span class="section__number">03</span>
+      <h2>The Entry</h2>
+      <p class="section__kicker">
+        First impressions: hand-troweled plaster, a sculptural console, and Austin on the wall.
+      </p>
+    </div>
+
+    <div class="hero-image hero-image--contained">
+      <img src="images/entry-lead.jpg" alt="Entry lounge — curved white sofa, carved wood credenza, octagonal brass mirror, Austin City Limits artwork">
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     04 — ANTE ROOM
+     ════════════════════════════════════════════════════════════════ -->
+<section class="section section--tinted">
+  <div class="container">
+    <div class="section__header">
+      <span class="section__number">04</span>
+      <h2>The Ante Room</h2>
+      <p class="section__kicker">
+        A pause between spaces &mdash; a fluted floating console, woven leather artwork, rattan light.
+      </p>
+    </div>
+
+    <div class="hero-image hero-image--portrait">
+      <img src="images/ante-room-lead.jpg" alt="Ante room — fluted floating console beneath woven leather wall sculpture, rattan sconces">
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     05 — KITCHEN & PANTRY
+     ════════════════════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section__header">
+      <span class="section__number">05</span>
+      <h2>The Kitchen</h2>
+      <p class="section__kicker">
+        White oak, one dramatic stone, and light &mdash; a kitchen that whispers rather than shouts.
+      </p>
+    </div>
+
+    <div class="hero-image">
+      <img src="images/kitchen-lead.jpg" alt="Kitchen — white oak cabinetry, marble slab backsplash rising into an arched hood, long island with fluted base">
+    </div>
+
+    <div class="grid-2 grid-2--uneven" style="margin-top: 2rem;">
+      <div class="cell"><img src="images/pantry-lead.jpg" alt="Pantry — a corridor of continuous white oak millwork with a window over the counter"></div>
+      <div class="cell" style="display:flex; align-items:center; box-shadow:none;">
+        <p style="font-family: Georgia, serif; font-style: italic; font-size: 1.1rem; color: #5A554C; padding: 1.5rem;">
+          Behind the kitchen, a working pantry wrapped in the same white oak &mdash;
+          so even the hardest-working room feels composed.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     06 — LIVING ROOM (render in progress)
+     ════════════════════════════════════════════════════════════════ -->
+<section class="section section--tinted">
+  <div class="container">
+    <div class="section__header">
+      <span class="section__number">06</span>
+      <h2>The Living Room</h2>
+      <p class="section__kicker">
+        The heart of the living floor &mdash; a wall of glass holding the lake.
+      </p>
+    </div>
+
+    <div class="placeholder">
+      <span class="placeholder__name">The Living Room</span>
+      <div class="placeholder__rule"></div>
+      <span class="placeholder__note">Rendering in progress</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     07 — OFFICE (render in progress)
+     ════════════════════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section__header">
+      <span class="section__number">07</span>
+      <h2>The Office</h2>
+      <p class="section__kicker">
+        A curved desk, layered shelving, and a door that closes on the world.
+      </p>
+    </div>
+
+    <div class="placeholder">
+      <span class="placeholder__name">The Office</span>
+      <div class="placeholder__rule"></div>
+      <span class="placeholder__note">Rendering in progress</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     08 — PRIMARY SUITE
+     ════════════════════════════════════════════════════════════════ -->
+<section class="section section--dark">
+  <div class="container">
+    <div class="section__header">
+      <span class="section__number">08</span>
+      <h2>The Primary Suite</h2>
+      <p class="section__kicker">
+        A private floor pointed at the water &mdash; bedroom, dressing room, and a bath carved in travertine.
+      </p>
+    </div>
+
+    <div class="placeholder">
+      <span class="placeholder__name">The Primary Bedroom</span>
+      <div class="placeholder__rule"></div>
+      <span class="placeholder__note">Rendering in progress</span>
+    </div>
+
+    <div class="hero-image" style="margin-top: 3rem;">
+      <img src="images/primary-bath-lead.jpg" alt="Primary bath — vein-cut travertine walls, freestanding oval tub, white oak floating vanity, glass wet room">
+    </div>
+    <p class="image-caption" style="color:#A39B8C;">The primary bath &mdash; vein-cut travertine, a sculpted tub, and white oak warmth.</p>
+
+    <div class="placeholder" style="margin-top: 3rem;">
+      <span class="placeholder__name">The Primary Closet</span>
+      <div class="placeholder__rule"></div>
+      <span class="placeholder__note">Rendering in progress</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     09 — THE BAR
+     ════════════════════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section__header">
+      <span class="section__number">09</span>
+      <h2>The Bar</h2>
+      <p class="section__kicker">
+        The promised pop of rock &amp; roll &mdash; a room dressed entirely in brushed brass.
+      </p>
+    </div>
+
+    <div class="hero-image hero-image--portrait">
+      <img src="images/bar-2.jpg" alt="The bar — brushed brass cabinetry and counters, open shelving with bottle display, warm under-shelf light">
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     10 — THE BATHS
+     ════════════════════════════════════════════════════════════════ -->
+<section class="section section--tinted">
+  <div class="container">
+    <div class="section__header">
+      <span class="section__number">10</span>
+      <h2>The Baths</h2>
+      <p class="section__kicker">
+        Four rooms, four moods &mdash; each built on marble, white oak, and a single strong idea.
+      </p>
+    </div>
+
+    <div class="pair">
+      <div class="cell"><img src="images/powder-1.jpg" alt="Powder room — hand-carved chiseled stone sink floating on plaster walls, angular black mirror, travertine sconces"></div>
+      <div class="cell"><img src="images/powder-2.jpg" alt="Powder room at dusk — the carved stone sink under warm sconce light"></div>
+    </div>
+    <p class="image-caption">The powder room &mdash; a hand-carved Calacatta Monet sink, Roman clay walls, and candlelight temperatures.</p>
+
+    <div class="board" style="margin-top: 3rem;">
+      <img src="images/bath2-board.jpg" alt="Bath 2 selections — Calacatta Gold marble, fluted mosaic wainscoting, dark reeded vanity, Atlas Grey Moroccan marble floor, polished nickel">
+    </div>
+    <p class="image-caption">Bath Two &mdash; Calacatta Gold and Atlas Grey, with a dark reeded vanity.</p>
+
+    <div class="board">
+      <img src="images/bath3-board.jpg" alt="Bath 3 selections — Casablanca Carrara marble, cabochon pencil mosaic, white oak floating vanity, Bardiglio grey floor, chrome">
+    </div>
+    <p class="image-caption">Bath Three &mdash; Casablanca Carrara calm over Bardiglio grey.</p>
+
+    <div class="board">
+      <img src="images/bath4-board.jpg" alt="Bath 4 selections — Calacatta Viola marble, fluted 3D tile, white oak floating vanity, aged brass fixtures">
+    </div>
+    <p class="image-caption">Bath Four &mdash; Calacatta Viola drama with aged brass.</p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     11 — THE ROOFTOP (render in progress)
+     ════════════════════════════════════════════════════════════════ -->
+<section class="section section--dark">
+  <div class="container">
+    <div class="section__header">
+      <span class="section__number">11</span>
+      <h2>The Rooftop</h2>
+      <p class="section__kicker">
+        The finale &mdash; dining, fire, and open sky above the tree line, with Lake Austin in every direction.
+      </p>
+    </div>
+
+    <div class="placeholder">
+      <span class="placeholder__name">The Rooftop</span>
+      <div class="placeholder__rule"></div>
+      <span class="placeholder__note">Rendering in progress</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     12 — LANDSCAPE & OUTDOOR LIVING
+     ════════════════════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section__header">
+      <span class="section__number">12</span>
+      <h2>The Landscape</h2>
+      <p class="section__kicker">
+        Native grasses, limestone boulders, and stone paths &mdash; the hillside handed back to Texas.
+      </p>
+    </div>
+
+    <div class="hero-image">
+      <img src="images/landscape-firepit.jpg" alt="Fire pit terrace — deep lounge chairs around a steel fire bowl, native plantings, the lake beyond">
+    </div>
+
+    <div class="grid-2">
+      <div class="cell"><img src="images/landscape-steps.jpg" alt="Limestone slab steps rising through native grasses and salvia"></div>
+      <div class="cell"><img src="images/landscape-arrival.jpg" alt="The arrival — a planted auto court beneath the oaks"></div>
+    </div>
+
+    <div class="hero-image">
+      <img src="images/landscape-terrace.jpg" alt="The dining terrace — a long table under the trees at the water side of the house">
+    </div>
+
+    <div class="hero-image hero-image--contained" style="margin-top: 2rem;">
+      <img src="images/landscape-aerial.jpg" alt="The house from above — rooftop terrace and gardens held inside the tree canopy">
+    </div>
+    <p class="image-caption">Held inside the canopy &mdash; the house reads as a quiet object in the trees.</p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     13 — MATERIALS & PALETTE
+     ════════════════════════════════════════════════════════════════ -->
+<section class="section section--dark">
+  <div class="container--narrow">
+    <div class="section__header">
+      <span class="section__number">13</span>
+      <h2>Materials &amp; Palette</h2>
+      <p class="section__kicker">
+        Natural, grounding colors pulled from the site itself &mdash; limestone, oak, water, and sky.
+      </p>
+    </div>
+
+    <div class="palette">
+      <div class="palette__swatch" style="background: #EDE9E6;">
+        <span class="palette__label" style="color: #5A554C;">Plaster White</span>
+        <span class="palette__hex" style="color: #8A8378;">#EDE9E6</span>
+      </div>
+      <div class="palette__swatch" style="background: #BDB499;">
+        <span class="palette__label" style="color: #453F33;">Sand</span>
+        <span class="palette__hex" style="color: #6A6152;">#BDB499</span>
+      </div>
+      <div class="palette__swatch" style="background: #98927A;">
+        <span class="palette__label" style="color: #F5F1E8;">Mushroom</span>
+        <span class="palette__hex" style="color: #D8D2C2;">#98927A</span>
+      </div>
+      <div class="palette__swatch" style="background: #6A7177;">
+        <span class="palette__label" style="color: #F5F1E8;">Slate</span>
+        <span class="palette__hex" style="color: #C2C8CC;">#6A7177</span>
+      </div>
+      <div class="palette__swatch" style="background: #6C858C;">
+        <span class="palette__label" style="color: #F5F1E8;">Lake Blue</span>
+        <span class="palette__hex" style="color: #C5D4D8;">#6C858C</span>
+      </div>
+      <div class="palette__swatch" style="background: #B2A08C;">
+        <span class="palette__label" style="color: #3A342B;">White Oak</span>
+        <span class="palette__hex" style="color: #5F5648;">#B2A08C</span>
+      </div>
+    </div>
+
+    <div class="divider" style="margin-top: 3rem;"></div>
+
+    <h4 style="margin-top: 2rem; color: #CFC9BD;">The Material Story</h4>
+    <div class="materials" style="margin-top: 1.5rem;">
+      <div class="materials__item">
+        <div class="materials__dot" style="background: #C9AE8C;"></div>
+        <div class="materials__text">
+          <span class="materials__name">White Oak</span>
+          <span class="materials__use">Floors, millwork, vanities &mdash; the through-line</span>
+        </div>
+      </div>
+      <div class="materials__item">
+        <div class="materials__dot" style="background: #D8CBB2;"></div>
+        <div class="materials__text">
+          <span class="materials__name">Vein-Cut Travertine</span>
+          <span class="materials__use">Primary bath walls</span>
+        </div>
+      </div>
+      <div class="materials__item">
+        <div class="materials__dot" style="background: #E8E2D0;"></div>
+        <div class="materials__text">
+          <span class="materials__name">Calacatta Gold</span>
+          <span class="materials__use">Bath two &mdash; fluted mosaic and slab</span>
+        </div>
+      </div>
+      <div class="materials__item">
+        <div class="materials__dot" style="background: #D9D9D4;"></div>
+        <div class="materials__text">
+          <span class="materials__name">Casablanca Carrara</span>
+          <span class="materials__use">Bath three &mdash; with Bardiglio grey</span>
+        </div>
+      </div>
+      <div class="materials__item">
+        <div class="materials__dot" style="background: #CBB8C4;"></div>
+        <div class="materials__text">
+          <span class="materials__name">Calacatta Viola</span>
+          <span class="materials__use">Bath four &mdash; the bold one</span>
+        </div>
+      </div>
+      <div class="materials__item">
+        <div class="materials__dot" style="background: #E2DBCE;"></div>
+        <div class="materials__text">
+          <span class="materials__name">Hand-Troweled Plaster</span>
+          <span class="materials__use">Walls throughout &mdash; texture over pattern</span>
+        </div>
+      </div>
+      <div class="materials__item">
+        <div class="materials__dot" style="background: #A88A50;"></div>
+        <div class="materials__text">
+          <span class="materials__name">Aged Brass</span>
+          <span class="materials__use">Hardware, lighting, and one entire bar</span>
+        </div>
+      </div>
+      <div class="materials__item">
+        <div class="materials__dot" style="background: #C4C8CC;"></div>
+        <div class="materials__text">
+          <span class="materials__name">Polished Nickel</span>
+          <span class="materials__use">Bath fittings &mdash; cool against warm stone</span>
+        </div>
+      </div>
+      <div class="materials__item">
+        <div class="materials__dot" style="background: #D5CDB8;"></div>
+        <div class="materials__text">
+          <span class="materials__name">Texas Limestone</span>
+          <span class="materials__use">Site walls, steps, and boulders</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     14 — THE PLANS
+     ════════════════════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section__header">
+      <span class="section__number">14</span>
+      <h2>The Plans</h2>
+      <p class="section__kicker">
+        Four levels stepping up the hillside &mdash; from the water to the sky.
+      </p>
+    </div>
+
+    <div class="plan-block">
+      <h3>Level One</h3>
+      <img src="images/plan-level1.png" alt="Level one furniture plan — arrival, garage, and lake-level spaces">
+    </div>
+
+    <div class="plan-block">
+      <h3>Level Two &mdash; The Living Floor</h3>
+      <img src="images/plan-level2.png" alt="Level two furniture plan — living room, kitchen, dining, and terraces">
+    </div>
+
+    <div class="plan-block">
+      <h3>Level Three &mdash; The Private Floor</h3>
+      <img src="images/plan-level3.png" alt="Level three furniture plan — primary suite and bedrooms">
+    </div>
+
+    <div class="plan-block">
+      <h3>The Rooftop</h3>
+      <img src="images/plan-roof.png" alt="Rooftop furniture plan — outdoor dining, lounge, and fire under pergolas">
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <span class="footer__logo">Prouv&eacute;</span>
+  Prepared by Prouv&eacute; &middot; 2026
+</footer>
+
+</body>
+</html>
